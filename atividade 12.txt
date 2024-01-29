@@ -1,0 +1,125 @@
+página 5
+1. 
+implementação 1:
+n fatorial(n) (recursivo)
+5 fatorial(5) = 5 * fatorial(4) = 5 * 2
+4 fatorial(4) = 4 * fatorial(3) = 4 * 6
+3 fatorial(3) = 3 * fatorial(2) = 3 *
+2 fatorial(2) = 2 (caso base)
+1 fatorial(1) = 1
+
+implementação 2:
+n fatorial(n) (iterativo)
+5 5*4*3*2*1
+4 4*3
+3 3
+2 2*1
+1 1
+
+2. X(3) = 2 + 3 * 1 = 5 X(4) = 5 + 4 * 2 = 13
+
+página 6
+1. 
+v	7	12	5	14	9	máx.(v)
+7	7	1	5	1	9	1
+1	7	1	5	1	9	1
+5	7	1	5	1	9	1
+1	7	1	5	1	9	1
+9	7	1	5	1	9	1
+
+2. 
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int sum(const vector<int>& v, int i){
+    if (i == v.size()){
+        return 0;
+    }
+    return v[i] + sum(v, i + 1);
+}
+
+int main(){
+    vector<int> v = {1, 2, 3, 4, 5};
+    int result = sum(v, 0);
+    return 0;
+}
+
+página 8
+#include <iostream>
+using namespace std;
+
+int numeros = 0;
+
+int fib(int n){
+    numeros++;
+    if (n <= 1)
+        return n;
+    else
+        return fib(n-1) + fib(n-2);
+}
+
+int main() {
+    cout << "fib(8) = " << fib(8) << endl;
+    cout << "numero de fibs: " << numeros << endl;
+    return 0;
+}
+
+página 9 a 11
+A. 
+#include <iostream>
+using namespace std;
+
+int soma_inteiros(int n){
+    if (n <= 0){
+        return 0;
+    }
+    return n + soma_inteiros(n - 1);
+}
+
+int main(){
+    int n = 5;
+    cout << "soma dos inteiros positivos ate " << n << " (f(" << n << ") = " << soma_inteiros(n) << ")" << endl;
+    return 0;
+}
+
+B.
+#include <iostream>
+using namespace std;
+
+double potencia(double base, int expoente){
+    if (expoente == 0){
+        return 1;
+    }
+    if (expoente < 0){
+        return 1 / potencia(base, -expoente);
+    }
+    return base * potencia(base, expoente - 1);
+}
+
+int main(){
+    double base = 2;
+    int expoente = 5;
+    cout << "potencia de " << base << " elevado a " << expoente << " (f(" << base << ", " << expoente << ") = " << potencia(base, expoente) << ")" << endl;
+    return 0;
+}
+
+C. A função teste recebe dois parâmetros: um array de inteiros x e um inteiro n. A função verifica se n é igual a 0. Se for, a função retorna 0. Caso contrário, a função verifica se o último elemento do array x (x[n-1]) é maior que 10. Se for, a função retorna o valor de x[n-1] somado com o resultado da chamada recursiva de teste com os parâmetros x e n - 1. Se não for, a função retorna o resultado da chamada recursiva de teste com os parâmetros x e n - 1.
+Esta função é uma função recursiva linear, pois cada chamada recursiva depende apenas do resultado da chamada anterior.
+A função teste calcula a soma dos elementos do array x que são maiores que 10. Se o último elemento do array for maior que 10, a função o soma ao resultado da chamada recursiva com o array x e o tamanho n - 1. Se o último elemento do array for menor ou igual a 10, a função ignora-o e chama-se recursivamente com o array x e o tamanho n - 1. A função retorna 0 se o array tiver tamanho 0.
+
+D. A função teste2 recebe um inteiro n como parâmetro. A função verifica se n é menor que 10. Se for, a função retorna n. Caso contrário, a função retorna a soma do último dígito de n (obtido com a operação n % 10) com o resultado da chamada recursiva de teste2 com o parâmetro n / 10 (obtido com a operação de divisão inteira).
+A função teste2 calcula a soma dos dígitos de um número inteiro. Se o número tiver um dígito, a função retorna esse dígito. Caso contrário, a função retorna a soma do último dígito do número com o resultado da chamada recursiva com o número obtido pela divisão inteira do número por 10.
+Para teste2(4532), a função retorna 2 + teste2(453) = 2 + 3 + teste2(45) = 2 + 3 + 5 + teste2(4) = 2 + 3 + 5 + 4 = 14.
+Portanto, o retorno de teste2(4532) é 14.
+
+E. A função max recebe um ponteiro para um array de inteiros v e um inteiro n como parâmetros. A função verifica se n é igual a 1. Se for, a função retorna o primeiro elemento do array v (v[0]). Caso contrário, a função chama-se recursivamente com o array v e o tamanho n - 1, obtendo o resultado da chamada recursiva em x. A função então compara x com o último elemento do array v (v[n-1]). Se x for maior que o último elemento do array, a função retorna x. Caso contrário, a função retorna o último elemento do array.
+Para o vetor {2, 7, 4, 7, 3}, a função retorna o maior dos dois valores iguais 7. O primeiro 7 é o retorno da chamada recursiva com o array {2, 7, 4, 7, 3} e o tamanho 4, enquanto o segundo 7 é o último elemento do array. Como 7 é maior que 4, a função retorna 7 como o maior valor do array.
+Portanto, o retorno da função max para o vetor {2, 7, 4, 7, 3} é o valor 7 no índice 3 do vetor.
+
+4. for(int i=n, i>0, i++){
+	soma+=i;
+}
+1
+ele calcula a soma dos numeros decrementando 1. 
+Ex: 5+4+3+2+1
